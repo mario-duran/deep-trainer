@@ -3,6 +3,7 @@
 # SAMPLE USAGE: trainer.py "./path_to_data" --save_dir "./path_to_save/checkpoint.pth" --arch vgg16 -- --epochs 5 --learning_rate 0.00075 --hidden_units 512  --gpu --batch_size 32
 
 import time
+import datetime
 import argparse
 import os
 import numpy
@@ -164,7 +165,7 @@ def create_model(arch, hidden_units):
 def train_model(model, epochs, use_gpu, train_loader, optimizer, criterion):
 
     started = time.time()
-    print("Training started at {}".format(started))
+    print("Training started at {}".format(datetime.datetime.now()))
     
     model.train(True)
     
@@ -237,7 +238,7 @@ def validate_test_data(model, test_data, use_gpu):
 def save_model(path, chekpoint):
     torch.save(chekpoint, path)
 
-    print("Cheackpoint saved at: " + path)
+    print("Checkpoint saved at: " + path)
     return None
 
 if __name__ == "__main__":
