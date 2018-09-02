@@ -111,7 +111,7 @@ def get_args():
     parser.add_argument("--hidden_units", type=int, nargs="*", default=[1024], help="How many hidden layers to add to the classifier")
     parser.add_argument("--epochs", type=int, default=2, help="Sets the Epochs to be used (2 by default)")
     parser.add_argument("--gpu", action='store_true', help="Use GPU")
-    parser.add_argument("--batch_size", type=int, default=64 help="Batch size to load the data")
+    parser.add_argument("--batch_size", type=int, default=64, help="Batch size to load the data")
 
     return parser.parse_args()
 
