@@ -1,6 +1,6 @@
 # PROGRAMMER: Mario A. Duran
 # DATE CREATED: 09/02/2018
-# SAMPLE USAGE: trainer.py "./path_to_data" --save_dir "./path_to_save/checkpoint.pth" --arch vgg16 -- --epochs 5 --learning_rate 0.00075 --hidden_units 512  --gpu
+# SAMPLE USAGE: trainer.py "./path_to_data" --save_dir "./path_to_save/checkpoint.pth" --arch vgg16 -- --epochs 5 --learning_rate 0.00075 --hidden_units 512  --gpu --batch_size 32
 
 import time
 import argparse
@@ -18,6 +18,8 @@ def init():
 
     #SET THE DATA PATHS
     data_dir = arguments.data_dir
+
+    data_labels = ['train', 'valid', 'test']
 
     #SET TRANSFORMS
     data_transforms = {
@@ -48,21 +50,21 @@ def init():
             os.path.join(data_dir, x), 
             transform=data_transforms[x]
         )
-        for x in ['train', 'valid', 'test']
+        for x in data_labels
     }
 
     #DATA LOADERS
     dataloaders = {
         x: torch.utils.data.DataLoader(
-            image_datasets[x], batch_size=64,
+            image_datasets[x], batch_size=arguments.batch_size,
             shuffle=True
         )
-        for x in ['train', 'valid', 'test']
+        for x in data_labels
     }
 
-    dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'valid', 'test']}
+    dataset_sizes = {x: len(image_datasets[x]) for x in data_labels}
 
-    for x in ['train', 'valid', 'test']:
+    for x in data_labels:
         print("Loaded {} images under {}".format(dataset_sizes[x], x))
     print("-"*10)
 
@@ -108,6 +110,7 @@ def get_args():
     parser.add_argument("--hidden_units", type=int, nargs="*", default=[1024], help="How many hidden layers to add to the classifier")
     parser.add_argument("--epochs", type=int, default=2, help="Sets the Epochs to be used (2 by default)")
     parser.add_argument("--gpu", action='store_true', help="Use GPU")
+    parser.add_argument("--batch_size", type=int, default=64 help="Batch size to load the data")
 
     return parser.parse_args()
 
