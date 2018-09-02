@@ -1,9 +1,9 @@
 # deep-trainer
-A generic deep learning training script using python and pytorch
+A generic deep learning training script using python and pytorch. This is a modifyed generic version of the final project requirements of the AI Programing with Python Nanodegree by Udacity
 
 ## Dependencies
-- Pytorch
-- Numpy
+- Pytorch [Docs](https://pytorch.org/docs/stable/index.html)
+- Numpy [Docs](https://docs.scipy.org/doc/)
 
 ## Usage
 The basic usage is as follows:
