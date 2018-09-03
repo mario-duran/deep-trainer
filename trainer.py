@@ -106,7 +106,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("data_dir", type=str, help="Data directory")
     parser.add_argument("--save_dir", type=str, default="", help="Folder and filename to save the checkpoint")
-    parser.add_argument("--arch", type=str, default="vgg16", help="The model architecture to use (vgg16, alexnet, densenet")
+    parser.add_argument("--arch", type=str, default="vgg16", help="The model architecture to use (vgg16, alexnet, densenet)")
     parser.add_argument("--learning_rate", type=float, default=0.001, help="Sets the learning rate")
     parser.add_argument("--hidden_units", type=int, nargs="*", default=[1024], help="How many hidden layers to add to the classifier")
     parser.add_argument("--epochs", type=int, default=2, help="Sets the Epochs to be used (2 by default)")
