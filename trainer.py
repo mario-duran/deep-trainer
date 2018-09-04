@@ -1,6 +1,6 @@
 # PROGRAMMER: Mario A. Duran
 # DATE CREATED: 09/02/2018
-# SAMPLE USAGE: trainer.py "./path_to_data" --save_dir "./path_to_save/checkpoint.pth" --arch vgg16 -- --epochs 5 --learning_rate 0.00075 --hidden_units 512  --gpu --batch_size 32
+# SAMPLE USAGE: trainer.py "./path_to_data" --save_dir "./path_to_save/checkpoint.pth" --arch vgg16 --epochs 5 --learning_rate 0.00075 --hidden_units 512  --gpu --batch_size 32
 
 import time
 import datetime
